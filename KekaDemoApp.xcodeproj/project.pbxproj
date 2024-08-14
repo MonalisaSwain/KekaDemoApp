@@ -13,6 +13,11 @@
 		426F943E2C6CAF4100262469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 426F943D2C6CAF4100262469 /* Preview Assets.xcassets */; };
 		426F94402C6CAF4100262469 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F943F2C6CAF4100262469 /* Persistence.swift */; };
 		426F94432C6CAF4100262469 /* KekaDemoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 426F94412C6CAF4100262469 /* KekaDemoApp.xcdatamodeld */; };
+		426F944B2C6CB01000262469 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F944A2C6CB01000262469 /* ArticleModel.swift */; };
+		426F944E2C6CB21100262469 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F944D2C6CB21100262469 /* NetworkManager.swift */; };
+		426F94512C6CB4AF00262469 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F94502C6CB4AF00262469 /* ArticleListViewModel.swift */; };
+		426F94542C6CB5BF00262469 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F94532C6CB5BF00262469 /* CoreDataManager.swift */; };
+		426F94572C6CC87A00262469 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F94562C6CC87A00262469 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		426F943D2C6CAF4100262469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		426F943F2C6CAF4100262469 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		426F94422C6CAF4100262469 /* KekaDemoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KekaDemoApp.xcdatamodel; sourceTree = "<group>"; };
+		426F944A2C6CB01000262469 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		426F944D2C6CB21100262469 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		426F94502C6CB4AF00262469 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
+		426F94532C6CB5BF00262469 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		426F94562C6CC87A00262469 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,11 @@
 		426F94352C6CAF3E00262469 /* KekaDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				426F94552C6CC86B00262469 /* Utility */,
+				426F94522C6CB5A600262469 /* CoreDataManager */,
+				426F944F2C6CB49100262469 /* ViewModel */,
+				426F944C2C6CB1FD00262469 /* NetworkManager */,
+				426F94492C6CAFF300262469 /* Model */,
 				426F94362C6CAF3E00262469 /* KekaDemoAppApp.swift */,
 				426F94382C6CAF3E00262469 /* ContentView.swift */,
 				426F943A2C6CAF4100262469 /* Assets.xcassets */,
@@ -71,6 +86,46 @@
 				426F943D2C6CAF4100262469 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		426F94492C6CAFF300262469 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				426F944A2C6CB01000262469 /* ArticleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		426F944C2C6CB1FD00262469 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				426F944D2C6CB21100262469 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		426F944F2C6CB49100262469 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				426F94502C6CB4AF00262469 /* ArticleListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		426F94522C6CB5A600262469 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				426F94532C6CB5BF00262469 /* CoreDataManager.swift */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		426F94552C6CC86B00262469 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				426F94562C6CC87A00262469 /* Reachability.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +198,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				426F944E2C6CB21100262469 /* NetworkManager.swift in Sources */,
 				426F94402C6CAF4100262469 /* Persistence.swift in Sources */,
+				426F944B2C6CB01000262469 /* ArticleModel.swift in Sources */,
 				426F94392C6CAF3E00262469 /* ContentView.swift in Sources */,
 				426F94432C6CAF4100262469 /* KekaDemoApp.xcdatamodeld in Sources */,
+				426F94572C6CC87A00262469 /* Reachability.swift in Sources */,
 				426F94372C6CAF3E00262469 /* KekaDemoAppApp.swift in Sources */,
+				426F94542C6CB5BF00262469 /* CoreDataManager.swift in Sources */,
+				426F94512C6CB4AF00262469 /* ArticleListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
