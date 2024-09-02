@@ -65,4 +65,14 @@ class ArticleListViewModel : ObservableObject {
             )
         }
     }
+    
+    func deleteArticleFromCoreData(offset: Int) {
+        let dateFormatter = ISO8601DateFormatter()
+        let date = dateFormatter.date(from: articleDataList[offset].date)
+        coreDataManager.deleteArticle(title:articleDataList[offset].title.main,
+                                      abstract: articleDataList[offset].description,
+                                      pubDate: date!,
+                                      imageURL: articleDataList[offset].image?.first?.url ?? "")
+        self.articleDataList.remove(at: offset)
+    }
 }

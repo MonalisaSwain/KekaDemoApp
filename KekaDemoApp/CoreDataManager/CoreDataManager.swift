@@ -58,4 +58,15 @@ class CoreDataManager {
         saveContext()
     }
     
+    func deleteArticle(title: String, abstract: String, pubDate: Date, imageURL: String) {
+        let context = persistentContainer.viewContext
+        let article = ArticleItem(context: context)
+        article.title = title
+        article.articleDescription = abstract
+        article.articleDate = pubDate
+        article.image = imageURL
+        context.delete(article)
+        saveContext()
+    }
+    
 }

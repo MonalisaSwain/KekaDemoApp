@@ -42,41 +42,54 @@ import CoreData
 
 struct ContentView: View {
     @StateObject var viewModel = ArticleListViewModel()
+    @State var isSwipped: Bool = false
     
     var body: some View {
-        List(viewModel.articleDataList, id: \.title.main) { article in
-            VStack(alignment: .leading) {
-                if let imageUrl = article.image?.first?.url {
-                    AsyncImage(url: URL(string: "https://www.nytimes.com/\(imageUrl)")) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxHeight: 200)
-                    } placeholder: {
-                        Image(systemName: "photo.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxHeight: 200)
-                        
+        List() {
+            ForEach(0..<viewModel.articleDataList.count, id: \.self) { index in
+                VStack(alignment: .leading) {
+                    var article = viewModel.articleDataList[index]
+                    if let imageUrl = article.image?.first?.url {
+                        AsyncImage(url: URL(string: "https://www.nytimes.com/\(imageUrl)")) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 200)
+                        } placeholder: {
+                            Image(systemName: "photo.circle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 200)
+                            
+                        }
+                    }
+                    Text(article.title.main)
+                        .font(.headline)
+                    
+                    Text(article.description)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    
+                    Text(article.formattedDate)
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                }
+                .padding()
+                .swipeActions(allowsFullSwipe: false) {
+                    Button(role: .destructive) {
+                        viewModel.deleteArticleFromCoreData(offset: index)
+                    } label: {
+                        Label("delete", systemImage: "trash.fill")
                     }
                 }
-                Text(article.title.main)
-                    .font(.headline)
-                
-                Text(article.description)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                
-                Text(article.formattedDate)
-                    .font(.footnote)
-                    .foregroundColor(.gray)
             }
-            .padding()
         }
         .onAppear {
             if !Reachability.isConnectedToNetwork() {
                 viewModel.loadFromCoreData()
             }
         }
+        
+        
     }
 }
